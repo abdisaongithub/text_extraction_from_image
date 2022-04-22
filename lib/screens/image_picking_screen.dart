@@ -43,36 +43,39 @@ class _ImagePickingScreenState extends State<ImagePickingScreen> {
     }
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
-        return CameraPreview(
-          controller,
-          child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              return SizedBox(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () async {
-                        final image = await controller.takePicture();
-                        ref
-                            .read(imagePathProvider.notifier)
-                            .addPath(path: image.path);
-                      },
-                      child: const CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 25,
+        return SafeArea(
+          top: true,
+          child: CameraPreview(
+            controller,
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () async {
+                          final image = await controller.takePicture();
+                          ref
+                              .read(imagePathProvider.notifier)
+                              .addPath(path: image.path);
+                        },
+                        child: const CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 25,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                  ],
-                ),
-              );
-            },
+                      const SizedBox(
+                        height: 50,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         );
       },

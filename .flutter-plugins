@@ -1,6 +1,7 @@
 # This is a generated file; do not edit or check into version control.
 camera=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.9.4+20/
 camera_web=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/camera_web-0.2.1+3/
+filesaverz=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/filesaverz-1.2.0/
 flutter_plugin_android_lifecycle=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.5/
 fluttertoast=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9/
 google_mlkit_barcode_scanning=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/google_mlkit_barcode_scanning-0.0.1+1/
@@ -15,9 +16,7 @@ google_mlkit_pose_detection=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/
 google_mlkit_smart_reply=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/google_mlkit_smart_reply-0.0.1/
 google_mlkit_text_recognition=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/google_mlkit_text_recognition-0.0.1/
 google_mlkit_translation=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/google_mlkit_translation-0.0.1/
-path_provider=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.9/
-path_provider_android=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.12/
-path_provider_ios=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.8/
-path_provider_linux=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.5/
-path_provider_macos=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.5/
-path_provider_windows=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.5/
+permission_handler=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-9.2.0/
+permission_handler_android=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_android-9.0.2+1/
+permission_handler_apple=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_apple-9.0.4/
+permission_handler_windows=/home/abdi/sdks/flutter_linux_2.10.1-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_windows-0.1.0/
