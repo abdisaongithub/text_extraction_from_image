@@ -3,7 +3,7 @@ import 'dart:io' show File;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
 final imagePathProvider =
     StateNotifierProvider<ImagePathNotifier, String>((ref) {
@@ -11,17 +11,32 @@ final imagePathProvider =
 });
 
 class ImagePathNotifier extends StateNotifier<String> {
-  ImagePathNotifier() : super('\n');
+  ImagePathNotifier() : super('');
   String content = '';
-  TextRecognizer textRecognizer = GoogleMlKit.vision.textRecognizer();
+  TextRecognizer textRecognizer =
+      TextRecognizer(script: TextRecognitionScript.latin);
   late InputImage inputImage;
 
-  addPath({required String path}) async {
+  extractNew({required String path}) async {
     inputImage = InputImage.fromFile(File(path));
     final recognized = await textRecognizer.processImage(inputImage);
+
     state = state + recognized.text;
     Fluttertoast.showToast(
       msg: "Image Scanned, Move on to the next Page",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.black54,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+  }
+
+  clearField() {
+    state = '';
+    Fluttertoast.showToast(
+      msg: "File Saved to disk",
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.CENTER,
       timeInSecForIosWeb: 1,

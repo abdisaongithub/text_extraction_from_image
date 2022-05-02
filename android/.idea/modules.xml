@@ -3,6 +3,25 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/877238310/android.camera.iml" filepath="$PROJECT_DIR$/.idea/modules/877238310/android.camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1546594955/android.filesaverz.iml" filepath="$PROJECT_DIR$/.idea/modules/-1546594955/android.filesaverz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/113355593/android.flutter_plugin_android_lifecycle.iml" filepath="$PROJECT_DIR$/.idea/modules/113355593/android.flutter_plugin_android_lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1066142477/android.fluttertoast.iml" filepath="$PROJECT_DIR$/.idea/modules/1066142477/android.fluttertoast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1472352547/android.google_mlkit_barcode_scanning.iml" filepath="$PROJECT_DIR$/.idea/modules/-1472352547/android.google_mlkit_barcode_scanning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1232541842/android.google_mlkit_commons.iml" filepath="$PROJECT_DIR$/.idea/modules/1232541842/android.google_mlkit_commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-938341956/android.google_mlkit_digital_ink_recognition.iml" filepath="$PROJECT_DIR$/.idea/modules/-938341956/android.google_mlkit_digital_ink_recognition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1637414600/android.google_mlkit_entity_extraction.iml" filepath="$PROJECT_DIR$/.idea/modules/1637414600/android.google_mlkit_entity_extraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2054030033/android.google_mlkit_face_detection.iml" filepath="$PROJECT_DIR$/.idea/modules/-2054030033/android.google_mlkit_face_detection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1456638306/android.google_mlkit_image_labeling.iml" filepath="$PROJECT_DIR$/.idea/modules/-1456638306/android.google_mlkit_image_labeling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1939074086/android.google_mlkit_language_id.iml" filepath="$PROJECT_DIR$/.idea/modules/1939074086/android.google_mlkit_language_id.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/519414545/android.google_mlkit_object_detection.iml" filepath="$PROJECT_DIR$/.idea/modules/519414545/android.google_mlkit_object_detection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/767583075/android.google_mlkit_pose_detection.iml" filepath="$PROJECT_DIR$/.idea/modules/767583075/android.google_mlkit_pose_detection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1034262072/android.google_mlkit_smart_reply.iml" filepath="$PROJECT_DIR$/.idea/modules/1034262072/android.google_mlkit_smart_reply.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-605225934/android.google_mlkit_text_recognition.iml" filepath="$PROJECT_DIR$/.idea/modules/-605225934/android.google_mlkit_text_recognition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1169921739/android.google_mlkit_translation.iml" filepath="$PROJECT_DIR$/.idea/modules/-1169921739/android.google_mlkit_translation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1938857172/android.permission_handler_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1938857172/android.permission_handler_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1898915741/android.url_launcher_android.iml" filepath="$PROJECT_DIR$/.idea/modules/1898915741/android.url_launcher_android.iml" />
     </modules>
   </component>
 </project>

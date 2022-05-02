@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:text_extraction_from_image/providers/imagePathProvider.dart';
 import 'package:text_extraction_from_image/screens/image_picking_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LandingScreen extends ConsumerStatefulWidget {
   static String id = 'LandingScreen';
@@ -15,8 +16,6 @@ class LandingScreen extends ConsumerStatefulWidget {
 }
 
 class _LandingScreenState extends ConsumerState<LandingScreen> {
-  bool _picked = false;
-
   void saveFile({required String text}) async {
     FileSaver fileSaver = FileSaver(
       initialFileName: 'New File',
@@ -24,6 +23,8 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
     );
 
     final a = await fileSaver.writeAsString(text, context: context);
+
+    ref.read(imagePathProvider.notifier).clearField();
 
     Fluttertoast.showToast(
       msg: "Text file saved at ${a!.parent.path}",
@@ -36,63 +37,110 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
     );
   }
 
+  void _launchUrl() async {
+    final Uri url = Uri.parse('https://t.me/abd_dba');
+    canLaunchUrl(url).then((bool result) {
+      if (result) {
+        try {
+          launchUrl(
+            url,
+            mode: LaunchMode.externalApplication,
+          );
+        } catch (e) {
+          Fluttertoast.showToast(
+            msg: 'Could not launch $url',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.black54,
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
+        }
+      } else {
+        debugPrint('Couldn\'t Launch URL');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final text = ref.watch(imagePathProvider);
 
     return SafeArea(
       top: true,
+      bottom: true,
       child: Scaffold(
         backgroundColor: const Color(0xFFF1F1F1),
-        body: Container(
+        body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: _picked && text.isEmpty
-              ? SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        height: 20,
+          child: text.isNotEmpty
+              ? Stack(
+                  children: [
+                    SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              text,
+                              textAlign: TextAlign.justify,
+                            ),
+                            const SizedBox(
+                              height: 80,
+                            ),
+                          ],
+                        ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          MaterialButton(
-                            onPressed: () async {
-                              saveFile(text: text);
-                            },
-                            color: Colors.blueGrey,
-                            child: const Text('Save'),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          MaterialButton(
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                ImagePickingScreen.id,
-                              );
-                            },
-                            color: Colors.teal,
-                            child: const Text('Scan Images'),
-                          ),
-                        ],
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFF1F1F1),
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        height: 50,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  saveFile(text: text);
+                                },
+                                child: Container(
+                                  color: Colors.deepPurple.withOpacity(0.75),
+                                  child: const Center(
+                                    child: Text('Save'),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, ImagePickingScreen.id);
+                                },
+                                child: Container(
+                                  color: Colors.deepOrange.withOpacity(0.75),
+                                  child: const Center(
+                                    child: Text('Scan Text'),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        text,
-                        textAlign: TextAlign.justify,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
+                    )
+                  ],
                 )
               : GestureDetector(
                   onTap: () async {
@@ -100,14 +148,25 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
                       context,
                       ImagePickingScreen.id,
                     );
-                    setState(() {
-                      _picked = true;
-                    });
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      GestureDetector(
+                        onTap: () {
+                          _launchUrl();
+                        },
+                        child: const Text(
+                          'Contact Developer',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Image.asset('assets/img/scan.jpg'),
                       const SizedBox(
                         height: 20,

@@ -56,17 +56,50 @@ class _ImagePickingScreenState extends State<ImagePickingScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                        onTap: () async {
-                          final image = await controller.takePicture();
-                          ref
-                              .read(imagePathProvider.notifier)
-                              .addPath(path: image.path);
-                        },
-                        child: const CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 25,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Opacity(
+                            opacity: 0,
+                            child: SizedBox(
+                              child: Text(
+                                'Cancel',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () async {
+                              final image = await controller.takePicture();
+                              ref
+                                  .read(imagePathProvider.notifier)
+                                  .extractNew(path: image.path);
+                            },
+                            child: const CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 25,
+                            ),
+                          ),
+                          SizedBox(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text(
+                                'Cancel',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 50,
