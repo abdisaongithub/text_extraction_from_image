@@ -152,6 +152,7 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       GestureDetector(
                         onTap: () {
@@ -172,7 +173,9 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
                         height: 20,
                       ),
                       const Text(
-                        'Tap anywhere to scan your text',
+                        'Tap on the image to scan your text',
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
                         style: TextStyle(
                           fontSize: 20,
                         ),

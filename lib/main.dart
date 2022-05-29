@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:text_extraction_from_image/screens/image_picking_screen.dart';
 import 'package:text_extraction_from_image/screens/landing_screen.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(
+        AssetImage('assets/img/scan.jpg', bundle: PlatformAssetBundle()),
+        context);
     return MaterialApp(
       title: 'Text Extraction From Images',
       debugShowCheckedModeBanner: false,
